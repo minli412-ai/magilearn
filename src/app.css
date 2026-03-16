@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-nunito: 'Nunito', system-ui, sans-serif;
+  --font-andika: 'Andika', 'Nunito', system-ui, sans-serif;
+}
+
+:root {
+  --color-bg-dark: #0B1528;
+  --color-bg-light: #E8F0FE;
+  --color-primary: #FF8C42;
+  --color-success: #FFD700;
+  --color-encouraging: #B39DDB;
+  --color-text-on-dark: #FFFFFF;
+  --color-text-on-light: #1A237E;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('https://fonts.gstatic.com/s/nunito/v26/XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTQ3j6zbXWjgeg.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('https://fonts.gstatic.com/s/nunito/v26/XRXI3I6Li01BKofiOc5wtlZ2di8HDIkhdTo3j6zbXWjgeg.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: var(--font-nunito);
+}
+
+body {
+  background: var(--color-bg-dark);
+  color: var(--color-text-on-dark);
+}
+
+.font-literacy {
+  font-family: var(--font-andika);
+}
+
+/* Large touch targets for 6-year-olds */
+.touch-target {
+  min-height: 56px;
+  min-width: 56px;
+}
+
+.touch-target-lg {
+  min-height: 64px;
+  min-width: 64px;
+}

@@ -1,0 +1,70 @@
+import type { FrenchWord } from '../../types/index.ts';
+
+export const wordBank: FrenchWord[] = [
+  // Period 1
+  { text: 'a', syllables: ['a'], audioFile: 'fr/words/a.mp3', requiredCGPs: ['a'], period: 1, frequency: 'high' },
+  { text: 'ami', syllables: ['a', 'mi'], audioFile: 'fr/words/ami.mp3', requiredCGPs: ['a', 'i'], period: 1, frequency: 'high' },
+  { text: 'île', syllables: ['île'], audioFile: 'fr/words/ile.mp3', requiredCGPs: ['i'], period: 1, frequency: 'medium' },
+  { text: 'os', syllables: ['os'], audioFile: 'fr/words/os.mp3', requiredCGPs: ['o'], period: 1, frequency: 'medium' },
+  { text: 'été', syllables: ['é', 'té'], audioFile: 'fr/words/ete.mp3', requiredCGPs: ['é'], period: 1, frequency: 'high' },
+  { text: 'uni', syllables: ['u', 'ni'], audioFile: 'fr/words/uni.mp3', requiredCGPs: ['u', 'i'], period: 1, frequency: 'medium' },
+
+  // Period 2
+  { text: 'lit', syllables: ['lit'], audioFile: 'fr/words/lit.mp3', requiredCGPs: ['l', 'i'], period: 2, frequency: 'high' },
+  { text: 'lune', syllables: ['lu', 'ne'], audioFile: 'fr/words/lune.mp3', requiredCGPs: ['l', 'u', 'n', 'e'], period: 2, frequency: 'high' },
+  { text: 'mur', syllables: ['mur'], audioFile: 'fr/words/mur.mp3', requiredCGPs: ['m', 'u', 'r'], period: 2, frequency: 'medium' },
+  { text: 'papa', syllables: ['pa', 'pa'], audioFile: 'fr/words/papa.mp3', requiredCGPs: ['p', 'a'], period: 2, frequency: 'high' },
+  { text: 'maman', syllables: ['ma', 'man'], audioFile: 'fr/words/maman.mp3', requiredCGPs: ['m', 'a', 'an'], period: 2, frequency: 'high' },
+  { text: 'fil', syllables: ['fil'], audioFile: 'fr/words/fil.mp3', requiredCGPs: ['f', 'i', 'l'], period: 2, frequency: 'medium' },
+  { text: 'sol', syllables: ['sol'], audioFile: 'fr/words/sol.mp3', requiredCGPs: ['s', 'o', 'l'], period: 2, frequency: 'medium' },
+  { text: 'rue', syllables: ['rue'], audioFile: 'fr/words/rue.mp3', requiredCGPs: ['r', 'u', 'e'], period: 2, frequency: 'high' },
+  { text: 'vélo', syllables: ['vé', 'lo'], audioFile: 'fr/words/velo.mp3', requiredCGPs: ['v', 'é', 'l', 'o'], period: 2, frequency: 'high' },
+  { text: 'feu', syllables: ['feu'], audioFile: 'fr/words/feu.mp3', requiredCGPs: ['f', 'e', 'u'], period: 2, frequency: 'high' },
+  { text: 'nid', syllables: ['nid'], audioFile: 'fr/words/nid.mp3', requiredCGPs: ['n', 'i'], period: 2, frequency: 'medium' },
+  { text: 'sac', syllables: ['sac'], audioFile: 'fr/words/sac.mp3', requiredCGPs: ['s', 'a'], period: 2, frequency: 'high' },
+  { text: 'porte', syllables: ['por', 'te'], audioFile: 'fr/words/porte.mp3', requiredCGPs: ['p', 'o', 'r', 't', 'e'], period: 2, frequency: 'high' },
+  { text: 'table', syllables: ['ta', 'ble'], audioFile: 'fr/words/table.mp3', requiredCGPs: ['t', 'a', 'l', 'e'], period: 2, frequency: 'high' },
+  { text: 'nature', syllables: ['na', 'tu', 're'], audioFile: 'fr/words/nature.mp3', requiredCGPs: ['n', 'a', 't', 'u', 'r', 'e'], period: 2, frequency: 'medium' },
+  { text: 'tomate', syllables: ['to', 'ma', 'te'], audioFile: 'fr/words/tomate.mp3', requiredCGPs: ['t', 'o', 'm', 'a', 'e'], period: 2, frequency: 'medium' },
+  { text: 'pile', syllables: ['pi', 'le'], audioFile: 'fr/words/pile.mp3', requiredCGPs: ['p', 'i', 'l', 'e'], period: 2, frequency: 'medium' },
+  { text: 'rat', syllables: ['rat'], audioFile: 'fr/words/rat.mp3', requiredCGPs: ['r', 'a'], period: 2, frequency: 'medium' },
+  { text: 'sapin', syllables: ['sa', 'pin'], audioFile: 'fr/words/sapin.mp3', requiredCGPs: ['s', 'a', 'p', 'in'], period: 2, frequency: 'medium' },
+
+  // Period 3
+  { text: 'chat', syllables: ['chat'], audioFile: 'fr/words/chat.mp3', requiredCGPs: ['ch', 'a'], period: 3, frequency: 'high' },
+  { text: 'loup', syllables: ['loup'], audioFile: 'fr/words/loup.mp3', requiredCGPs: ['l', 'ou'], period: 3, frequency: 'high' },
+  { text: 'jour', syllables: ['jour'], audioFile: 'fr/words/jour.mp3', requiredCGPs: ['j', 'ou', 'r'], period: 3, frequency: 'high' },
+  { text: 'pont', syllables: ['pont'], audioFile: 'fr/words/pont.mp3', requiredCGPs: ['p', 'on'], period: 3, frequency: 'medium' },
+  { text: 'roi', syllables: ['roi'], audioFile: 'fr/words/roi.mp3', requiredCGPs: ['r', 'oi'], period: 3, frequency: 'high' },
+  { text: 'balle', syllables: ['ba', 'lle'], audioFile: 'fr/words/balle.mp3', requiredCGPs: ['b', 'a', 'l'], period: 3, frequency: 'high' },
+  { text: 'banane', syllables: ['ba', 'na', 'ne'], audioFile: 'fr/words/banane.mp3', requiredCGPs: ['b', 'a', 'n', 'e'], period: 3, frequency: 'medium' },
+  { text: 'chocolat', syllables: ['cho', 'co', 'lat'], audioFile: 'fr/words/chocolat.mp3', requiredCGPs: ['ch', 'o', 'l', 'a'], period: 3, frequency: 'high' },
+  { text: 'bonbon', syllables: ['bon', 'bon'], audioFile: 'fr/words/bonbon.mp3', requiredCGPs: ['b', 'on'], period: 3, frequency: 'high' },
+  { text: 'jardin', syllables: ['jar', 'din'], audioFile: 'fr/words/jardin.mp3', requiredCGPs: ['j', 'a', 'r', 'd', 'in'], period: 3, frequency: 'high' },
+  { text: 'domino', syllables: ['do', 'mi', 'no'], audioFile: 'fr/words/domino.mp3', requiredCGPs: ['d', 'o', 'm', 'i', 'n'], period: 3, frequency: 'medium' },
+  { text: 'gâteau', syllables: ['gâ', 'teau'], audioFile: 'fr/words/gateau.mp3', requiredCGPs: ['g', 'a', 'eau'], period: 3, frequency: 'high' },
+  { text: 'cheval', syllables: ['che', 'val'], audioFile: 'fr/words/cheval.mp3', requiredCGPs: ['ch', 'e', 'v', 'a', 'l'], period: 3, frequency: 'high' },
+  { text: 'enfant', syllables: ['en', 'fant'], audioFile: 'fr/words/enfant.mp3', requiredCGPs: ['an', 'f'], period: 3, frequency: 'high' },
+  { text: 'blanc', syllables: ['blanc'], audioFile: 'fr/words/blanc.mp3', requiredCGPs: ['b', 'l', 'an'], period: 3, frequency: 'medium' },
+
+  // Period 4
+  { text: 'maison', syllables: ['mai', 'son'], audioFile: 'fr/words/maison.mp3', requiredCGPs: ['m', 'ai', 's', 'on'], period: 4, frequency: 'high' },
+  { text: 'bateau', syllables: ['ba', 'teau'], audioFile: 'fr/words/bateau.mp3', requiredCGPs: ['b', 'a', 'eau'], period: 4, frequency: 'high' },
+  { text: 'lapin', syllables: ['la', 'pin'], audioFile: 'fr/words/lapin.mp3', requiredCGPs: ['l', 'a', 'p', 'in'], period: 4, frequency: 'high' },
+  { text: 'papillon', syllables: ['pa', 'pi', 'llon'], audioFile: 'fr/words/papillon.mp3', requiredCGPs: ['p', 'a', 'i', 'ill', 'on'], period: 4, frequency: 'medium' },
+  { text: 'montagne', syllables: ['mon', 'ta', 'gne'], audioFile: 'fr/words/montagne.mp3', requiredCGPs: ['m', 'on', 't', 'a', 'gn', 'e'], period: 4, frequency: 'medium' },
+  { text: 'neige', syllables: ['nei', 'ge'], audioFile: 'fr/words/neige.mp3', requiredCGPs: ['n', 'ei', 'g', 'e'], period: 4, frequency: 'high' },
+  { text: 'lait', syllables: ['lait'], audioFile: 'fr/words/lait.mp3', requiredCGPs: ['l', 'ai'], period: 4, frequency: 'high' },
+  { text: 'chapeau', syllables: ['cha', 'peau'], audioFile: 'fr/words/chapeau.mp3', requiredCGPs: ['ch', 'a', 'p', 'eau'], period: 4, frequency: 'high' },
+  { text: 'famille', syllables: ['fa', 'mi', 'lle'], audioFile: 'fr/words/famille.mp3', requiredCGPs: ['f', 'a', 'm', 'i', 'ill'], period: 4, frequency: 'high' },
+  { text: 'matin', syllables: ['ma', 'tin'], audioFile: 'fr/words/matin.mp3', requiredCGPs: ['m', 'a', 't', 'in'], period: 4, frequency: 'high' },
+  { text: 'jaune', syllables: ['jau', 'ne'], audioFile: 'fr/words/jaune.mp3', requiredCGPs: ['j', 'au', 'n', 'e'], period: 4, frequency: 'medium' },
+
+  // Period 5
+  { text: 'photo', syllables: ['pho', 'to'], audioFile: 'fr/words/photo.mp3', requiredCGPs: ['ph', 'o', 't'], period: 5, frequency: 'high' },
+  { text: 'éléphant', syllables: ['é', 'lé', 'phant'], audioFile: 'fr/words/elephant.mp3', requiredCGPs: ['é', 'l', 'ph', 'an'], period: 5, frequency: 'high' },
+  { text: 'guitare', syllables: ['gui', 'ta', 're'], audioFile: 'fr/words/guitare.mp3', requiredCGPs: ['gu', 'i', 't', 'a', 'r', 'e'], period: 5, frequency: 'medium' },
+  { text: 'orange', syllables: ['o', 'ran', 'ge'], audioFile: 'fr/words/orange.mp3', requiredCGPs: ['o', 'r', 'an', 'ge'], period: 5, frequency: 'high' },
+  { text: 'cerise', syllables: ['ce', 'ri', 'se'], audioFile: 'fr/words/cerise.mp3', requiredCGPs: ['ce', 'r', 'i', 's', 'e'], period: 5, frequency: 'medium' },
+  { text: 'plage', syllables: ['pla', 'ge'], audioFile: 'fr/words/plage.mp3', requiredCGPs: ['p', 'l', 'a', 'ge'], period: 5, frequency: 'high' },
+];
