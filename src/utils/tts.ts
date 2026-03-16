@@ -28,11 +28,7 @@ export function unlockSpeech(): void {
   speechUnlocked = true;
 }
 
-export function speak(text: string, lang: 'fr-FR' | 'en-GB' = 'fr-FR'): void {
-  if (!window.speechSynthesis) return;
-
-  speechSynthesis.cancel();
-
+function doSpeak(text: string, lang: string): void {
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = lang;
   utterance.rate = 0.85;
@@ -43,6 +39,29 @@ export function speak(text: string, lang: 'fr-FR' | 'en-GB' = 'fr-FR'): void {
   }
 
   speechSynthesis.speak(utterance);
+}
+
+/**
+ * Speak text immediately (synchronous). Use for user-initiated actions (button clicks).
+ */
+export function speak(text: string, lang: 'fr-FR' | 'en-GB' = 'fr-FR'): void {
+  if (!window.speechSynthesis) return;
+  speechSynthesis.cancel();
+  doSpeak(text, lang);
+}
+
+/**
+ * Speak text with a delay. Use for auto-speak on exercise mount
+ * so that any pending cancel from session cleanup takes effect first.
+ * Returns a cleanup function to cancel the pending timeout.
+ */
+export function speakDelayed(text: string, lang: 'fr-FR' | 'en-GB' = 'fr-FR'): () => void {
+  const timer = setTimeout(() => {
+    if (!window.speechSynthesis) return;
+    speechSynthesis.cancel();
+    doSpeak(text, lang);
+  }, 150);
+  return () => clearTimeout(timer);
 }
 
 export function cancelSpeech(): void {

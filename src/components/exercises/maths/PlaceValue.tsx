@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import type { ExerciseQuestion, ExerciseResult } from '../../../types/index.ts';
-import { speak } from '../../../utils/tts.ts';
+import { speakDelayed } from '../../../utils/tts.ts';
 import { CharacterBubble } from '../../common/CharacterBubble.tsx';
 import { Button } from '../../common/Button.tsx';
 
@@ -21,7 +21,8 @@ export default function PlaceValue({ question, onAnswer }: Props) {
 
   useEffect(() => {
     if (question.audioText) {
-      speak(question.audioText, question.audioLang || 'fr-FR');
+      const cancel = speakDelayed(question.audioText, question.audioLang || 'fr-FR');
+      return cancel;
     }
   }, [question]);
 

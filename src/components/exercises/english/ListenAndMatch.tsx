@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import type { ExerciseQuestion, ExerciseResult } from '../../../types/index.ts';
-import { speak } from '../../../utils/tts.ts';
+import { speakDelayed } from '../../../utils/tts.ts';
 import { CharacterBubble } from '../../common/CharacterBubble.tsx';
 
 interface Props {
@@ -19,7 +19,8 @@ export default function ListenAndMatch({ question, onAnswer }: Props) {
 
   useEffect(() => {
     if (question.audioText) {
-      speak(question.audioText, question.audioLang || 'en-GB');
+      const cancel = speakDelayed(question.audioText, question.audioLang || 'en-GB');
+      return cancel;
     }
   }, [question]);
 
