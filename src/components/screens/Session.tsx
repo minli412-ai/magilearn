@@ -11,7 +11,7 @@ import { FeedbackOverlay } from '../common/FeedbackOverlay.tsx';
 import { StarBurst } from '../common/StarBurst.tsx';
 import { ExerciseRenderer } from '../exercises/ExerciseRenderer.tsx';
 import { SessionSummary } from './SessionSummary.tsx';
-import { speak } from '../../utils/tts.ts';
+import { speak, cancelSpeech } from '../../utils/tts.ts';
 
 interface SessionProps {
   subject: Subject;
@@ -31,10 +31,12 @@ export function Session({ subject, onBack }: SessionProps) {
   const [showStarBurst, setShowStarBurst] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
 
-  // Initialize session
+  // Initialize session and cancel any leftover speech
   useEffect(() => {
+    cancelSpeech();
     const questions = pickExercises(subject, 5, skills);
     sessionStore.startSession(subject, questions);
+    return () => cancelSpeech();
   }, [subject]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const currentQuestion: ExerciseQuestion | null =
