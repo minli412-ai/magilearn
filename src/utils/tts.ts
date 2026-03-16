@@ -1,7 +1,22 @@
 let speechUnlocked = false;
 
+function ensureVoicesLoaded(): Promise<void> {
+  return new Promise((resolve) => {
+    const voices = speechSynthesis.getVoices();
+    if (voices.length > 0) {
+      resolve();
+      return;
+    }
+    speechSynthesis.onvoiceschanged = () => resolve();
+    // Fallback if event never fires
+    setTimeout(resolve, 1000);
+  });
+}
+
 export function unlockSpeech(): void {
   if (speechUnlocked || !window.speechSynthesis) return;
+  // Trigger voice loading
+  speechSynthesis.getVoices();
   const utterance = new SpeechSynthesisUtterance('');
   utterance.volume = 0;
   utterance.lang = 'fr-FR';
@@ -9,15 +24,15 @@ export function unlockSpeech(): void {
   speechUnlocked = true;
 }
 
-export function speak(text: string, lang: 'fr-FR' | 'en-GB' = 'fr-FR'): Promise<void> {
-  return new Promise((resolve) => {
-    if (!window.speechSynthesis) {
-      resolve();
-      return;
-    }
-    // Cancel any pending speech to avoid Chrome queue issues
-    speechSynthesis.cancel();
+export async function speak(text: string, lang: 'fr-FR' | 'en-GB' = 'fr-FR'): Promise<void> {
+  if (!window.speechSynthesis) return;
 
+  await ensureVoicesLoaded();
+
+  // Cancel any pending speech to avoid Chrome queue issues
+  speechSynthesis.cancel();
+
+  return new Promise((resolve) => {
     // Small delay after cancel to let Chrome reset
     setTimeout(() => {
       const utterance = new SpeechSynthesisUtterance(text);
@@ -26,12 +41,9 @@ export function speak(text: string, lang: 'fr-FR' | 'en-GB' = 'fr-FR'): Promise<
       utterance.onend = () => resolve();
       utterance.onerror = () => resolve();
 
-      // Chrome bug: voices may not be loaded yet
       const voices = speechSynthesis.getVoices();
-      if (voices.length > 0) {
-        const match = voices.find((v) => v.lang.startsWith(lang.split('-')[0]));
-        if (match) utterance.voice = match;
-      }
+      const match = voices.find((v) => v.lang.startsWith(lang.split('-')[0]));
+      if (match) utterance.voice = match;
 
       speechSynthesis.speak(utterance);
     }, 50);
