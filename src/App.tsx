@@ -9,6 +9,7 @@ import { WorldMap } from './components/screens/WorldMap.tsx';
 import { Badges } from './components/screens/Badges.tsx';
 import { Settings } from './components/screens/Settings.tsx';
 import type { Subject } from './types/index.ts';
+import { unlockSpeech } from './utils/tts.ts';
 
 type Screen = 'home' | 'session' | 'worldmap' | 'badges' | 'settings';
 
@@ -24,6 +25,7 @@ export function App() {
 
   const handleFirstInteraction = () => {
     if (!audioUnlocked) {
+      unlockSpeech();
       try {
         const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
         const ctx = new AudioCtx();
